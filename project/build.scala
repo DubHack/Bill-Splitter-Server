@@ -5,9 +5,9 @@ import org.scalatra.sbt.PluginKeys._
 import com.mojolly.scalate.ScalatePlugin._
 import ScalateKeys._
 
-object HyperionBuild extends Build {
-  val Organization = "com.socrata"
-  val Name = "Hyperion"
+object build extends Build {
+  val Organization = "dubhacks"
+  val Name = "Bill-Splitter-Server"
   val Version = "0.0.0"
   val ScalaVersion = "2.10.4"
   val ScalatraVersion = "2.2.2"
@@ -15,16 +15,14 @@ object HyperionBuild extends Build {
   
   
   lazy val project = Project (
-    "hyperion",
+    "bill-splitter-server",
     file("."),
     settings = Defaults.defaultSettings ++ ScalatraPlugin.scalatraWithJRebel ++ scalateSettings ++ Seq(
       organization := Organization,
       name := Name,
       version := Version,
       scalaVersion := ScalaVersion,
-      resolvers ++= Seq(
-        "socrata internal maven" at "https://repo.socrata.com/artifactory/simple/libs-release-local"
-      ),
+      resolvers ++= Seq(),
       libraryDependencies ++= Seq(
         // scalatra deps
         "org.scalatra"            %% "scalatra"             % ScalatraVersion,
